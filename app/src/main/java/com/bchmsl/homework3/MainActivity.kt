@@ -32,22 +32,26 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.btnSave.setOnClickListener {
-            binding.apply {
-                setColor(*allEditTexts, color = Color.WHITE)
-            }
+            setColor(*allEditTexts, color = Color.WHITE)
+
             if (fieldsCheck(etFirstName, etLastName, etEmail, etUsername, etAge)) {
-                enabled(*allEditTexts, enabled = false)
+                enable(*allEditTexts, enabled = false)
+
                 this.showSnackBar(binding.root, "Saved Successfully!")
-            }else{
+            } else {
                 this.showSnackBar(binding.root, "Please check fields and try again!")
             }
         }
 
         binding.btnClear.setOnLongClickListener {
 
-            clear(*allEditTexts)
-            setColor(*allEditTexts, color = Color.WHITE)
-            enabled(*allEditTexts, enabled = true)
+            allEditTexts.apply {
+                setColor(*this, color = Color.WHITE)
+                clear(*this)
+                enable(*this, enabled = false)
+            }
+
+
 
             this.showSnackBar(binding.root, "All fields cleared!")
             true
@@ -95,4 +99,6 @@ class MainActivity : AppCompatActivity() {
         }
         return fieldsCorrect
     }
+
+
 }

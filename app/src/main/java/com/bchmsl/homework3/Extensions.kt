@@ -6,24 +6,24 @@ import androidx.appcompat.widget.AppCompatEditText
 import com.google.android.material.snackbar.Snackbar
 
 
-fun setColor(vararg editText: AppCompatEditText, color: Int){
+fun setColor(vararg editText: AppCompatEditText, color: Int) {
     editText.forEach {
         it.setBackgroundColor(color)
     }
 }
 
-fun enabled(vararg editText: AppCompatEditText, enabled: Boolean){
+fun enable(vararg editText: AppCompatEditText, enabled: Boolean) {
     editText.forEach {
         it.isEnabled = enabled
     }
 }
 
-fun clear(vararg editText: AppCompatEditText){
+fun clear(vararg editText: AppCompatEditText) {
     editText.forEach {
         it.text?.clear()
     }
 }
 
-fun Context.showSnackBar(view: View, text: String){
+fun Context.showSnackBar(view: View, text: String) {
     Snackbar.make(this, view, text, Snackbar.LENGTH_SHORT).show()
 }
